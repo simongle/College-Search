@@ -94,6 +94,7 @@ class Search extends Component {
 			  tuition={selected.tuition} 
 				tuitionRatio={selected.instructional_spending_ratio}
 				schoolType={selected.sector}
+				additionalInformation={selected.additional_information}
 			/>
 			}
 			</React.Fragment>

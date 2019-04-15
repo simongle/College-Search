@@ -7,9 +7,9 @@ const formatter = new Intl.NumberFormat('en-US', {
 })
 
 const blurb = (props) => {
-const { tuition = 0 } = props;
-return <div> {tuition === 0 ? `This institution did not
-report financial data in 2016.` : (
+const { tuition = "0" } = props;
+return <div> {tuition === "0" || props.tuitionRatio === null ? <p>This institution did not
+report financial data in 2016.</p> : (
 <React.Fragment>
 <p>This institution spends {formatter.format(props.tuitionRatio)} on instruction for every dollar it collects in tuition.</p>
 <p>This is a {props.schoolType} and the tuition collected per full-time student
@@ -24,6 +24,7 @@ collected in tuition.</p>
 every dollar collected in tuition.</p>
 <p>The average private for-profit institution spends $0.29 on instruction for
 every dollar collected in tuition.</p>
+{ props.additionalInformation && <div><h2>Additional Notes</h2><p>{props.additionalInformation}</p></div>}
 </div>
 }
 
