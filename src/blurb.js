@@ -17,7 +17,7 @@ or equivalent is {formatter.format(props.tuition)}.</p>
 </React.Fragment>
 )
 }
-<h3>How does this school stack up?</h3>
+<h2>How does this school stack up?</h2>
 <p>The average public institution spends $1.42 on instruction for every dollar
 collected in tuition.</p>
 <p>The average private nonprofit institution spends $0.84 on instruction for

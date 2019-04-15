@@ -6,7 +6,6 @@ import data from './college_search_data.json';
 
 // Teach Autosuggest how to calculate suggestions for any given input value.
 const getSuggestions = value => {
-console.log(value)
   const inputValue = value.trim().toLowerCase();
   const inputLength = inputValue.length;
 
@@ -65,7 +64,6 @@ class Search extends Component {
   };
 
 	onSuggestionSelected = (event, { suggestion }) => {
-	  console.log(suggestion)
 		this.setState({ selected: suggestion })
 	}
 
@@ -91,7 +89,7 @@ class Search extends Component {
         renderSuggestion={renderSuggestion}
         inputProps={inputProps}
       />
-			<h3>{this.state.selected.name}</h3>
+			<h2>{this.state.selected.name}</h2>
 		  { Object.keys(this.state.selected).length !== 0 && <Blurb 
 			  tuition={selected.tuition} 
 				tuitionRatio={selected.instructional_spending_ratio}
