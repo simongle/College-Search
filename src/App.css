@@ -10,6 +10,10 @@ h2 {
 	line-height: 30px;
 }
 
+p .cost {
+  font-weight: 600;
+}
+
 .react-autosuggest__container {
   position: relative;
 }
