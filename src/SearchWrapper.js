@@ -2,13 +2,12 @@ import React, { Component } from 'react';
 import Autosuggest from 'react-autosuggest';
 
 import Blurb from './blurb.js';
-import data from './college_search_data.json';
+// import data from '../college_search_data.json';
 
 // Teach Autosuggest how to calculate suggestions for any given input value.
-const getSuggestions = value => {
+const getSuggestions = (data, value) => {
   const inputValue = value.trim().toLowerCase();
   const inputLength = inputValue.length;
-
   return inputLength === 0 ? [] : data.filter(lang =>
     lang.name.toLowerCase().slice(0, inputLength) === inputValue
   );
@@ -52,7 +51,7 @@ class Search extends Component {
   // You already implemented this logic above, so just use it.
   onSuggestionsFetchRequested = ({ value }) => {
     this.setState({
-      suggestions: getSuggestions(value)
+      suggestions: getSuggestions(this.props.data, value)
     });
   };
 
