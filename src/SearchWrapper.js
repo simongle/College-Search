@@ -21,7 +21,7 @@ const getSuggestionValue = suggestion => suggestion.name;
 // Use your imagination to render suggestions.
 const renderSuggestion = suggestion => (
   <div>
-    {suggestion.name}
+    {suggestion.name}, {suggestion.school_state}
   </div>
 );
 
@@ -79,6 +79,7 @@ class Search extends Component {
     // Finally, render it!
     return (
 		<React.Fragment>
+		  <h2>How Far Does Your Tuition Dollar Go?</h2>
       <Autosuggest
         suggestions={suggestions}
         onSuggestionsFetchRequested={this.onSuggestionsFetchRequested}

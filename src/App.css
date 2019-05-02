@@ -1,6 +1,8 @@
 .App {
   padding: 4% 4% 0;
-	border: 1px solid #d7d7d7;
+}
+body {
+  background: #eaeaea;
 }
 
 body p {
@@ -23,12 +25,17 @@ p .cost {
   position: relative;
 }
 .react-autosuggest__suggestions-container--open,
-.react-autosuggest__input {
+.react-autosuggest__input, #copyright {
 	font-family: verlag a,verlag b,sans-serif;
 	text-transform: uppercase;
 	letter-spacing: 1px;
 	font-size: 13px;
 	font-weight: 400;
+}
+
+#copyright {
+  font-size: 10px;
+	letter-spacing: initial;
 }
 
 .react-autosuggest__input {
