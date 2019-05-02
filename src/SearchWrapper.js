@@ -1,16 +1,17 @@
-import React, { Component } from 'react';
-import Autosuggest from 'react-autosuggest';
+import React, { Component } from "react";
+import Autosuggest from "react-autosuggest";
 
-import Blurb from './blurb.js';
-// import data from '../college_search_data.json';
+import Blurb from "./blurb.js";
 
 // Teach Autosuggest how to calculate suggestions for any given input value.
 const getSuggestions = (data, value) => {
   const inputValue = value.trim().toLowerCase();
   const inputLength = inputValue.length;
-  return inputLength === 0 ? [] : data.filter(lang =>
-    lang.name.toLowerCase().slice(0, inputLength) === inputValue
-  );
+  return inputLength === 0
+    ? []
+    : data.filter(
+        lang => lang.name.toLowerCase().slice(0, inputLength) === inputValue
+      );
 };
 
 // When suggestion is clicked, Autosuggest needs to populate the input
@@ -35,9 +36,9 @@ class Search extends Component {
     // Suggestions also need to be provided to the Autosuggest,
     // and they are initially empty because the Autosuggest is closed.
     this.state = {
-      value: '',
+      value: "",
       suggestions: [],
-			selected: {}
+      selected: {}
     };
   }
 
@@ -62,45 +63,45 @@ class Search extends Component {
     });
   };
 
-	onSuggestionSelected = (event, { suggestion }) => {
-		this.setState({ selected: suggestion })
-	}
+  onSuggestionSelected = (event, { suggestion }) => {
+    this.setState({ selected: suggestion });
+  };
 
   render() {
     const { value, suggestions, selected } = this.state;
 
     // Autosuggest will pass through all these props to the input.
     const inputProps = {
-      placeholder: 'Type a college name',
+      placeholder: "Type a college name",
       value,
       onChange: this.onChange
     };
 
     // Finally, render it!
     return (
-		<React.Fragment>
-		  <h2>How Far Does Your Tuition Dollar Go?</h2>
-      <Autosuggest
-        suggestions={suggestions}
-        onSuggestionsFetchRequested={this.onSuggestionsFetchRequested}
-        onSuggestionsClearRequested={this.onSuggestionsClearRequested}
-				onSuggestionSelected={this.onSuggestionSelected}
-        getSuggestionValue={getSuggestionValue}
-        renderSuggestion={renderSuggestion}
-        inputProps={inputProps}
-      />
-			<h2>{this.state.selected.name}</h2>
-		  { Object.keys(this.state.selected).length !== 0 && <Blurb 
-			  tuition={selected.tuition} 
-				tuitionRatio={selected.instructional_spending_ratio}
-				schoolType={selected.sector}
-				additionalInformation={selected.additional_information}
-			/>
-			}
-			</React.Fragment>
+      <React.Fragment>
+        <h2>How Far Does Your Tuition Dollar Go?</h2>
+        <Autosuggest
+          suggestions={suggestions}
+          onSuggestionsFetchRequested={this.onSuggestionsFetchRequested}
+          onSuggestionsClearRequested={this.onSuggestionsClearRequested}
+          onSuggestionSelected={this.onSuggestionSelected}
+          getSuggestionValue={getSuggestionValue}
+          renderSuggestion={renderSuggestion}
+          inputProps={inputProps}
+        />
+        <h2>{this.state.selected.name}</h2>
+        {Object.keys(this.state.selected).length !== 0 && (
+          <Blurb
+            tuition={selected.tuition}
+            tuitionRatio={selected.instructional_spending_ratio}
+            schoolType={selected.sector}
+            additionalInformation={selected.additional_information}
+          />
+        )}
+      </React.Fragment>
     );
   }
 }
 
 export default Search;
-
